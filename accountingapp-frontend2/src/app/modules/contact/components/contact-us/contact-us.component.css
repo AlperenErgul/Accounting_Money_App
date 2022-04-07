@@ -1,0 +1,36 @@
+input {
+  background: #1a2226;
+  border: 2px solid #FFAC41;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+input:focus{
+  background:#1a2226;
+}
+textarea {
+  background: #1a2226;
+  border: 2px solid #FFAC41;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+textarea:focus{
+  background:#1a2226;
+}
+.font{
+  font-family: 'Fredoka', sans-serif;
+}
+.bg-our{
+  background-color: #1a2226;
+}
+
+.container{
+  /*background-color: #FFAC41;*/
+  /*width: 100%;*/
+  /*height: 100%;*/
+}
+
+.bgbg{
+  background-color: #d9781c;
+}

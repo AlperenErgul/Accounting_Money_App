@@ -1,0 +1,38 @@
+.global-container {
+  padding-top: 140px;
+  padding-bottom: 95px;
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../../../assets/img/moneyimg3.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFAC41;
+}
+
+.bg-our{
+  background-color: #1a2226;
+}
+
+input {
+  background: #1a2226;
+  border: 2px solid #FFAC41;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+input:focus{
+  background:#1a2226;
+}
+
+a{
+  text-decoration: none;
+}
+.font{
+  font-family: 'Fredoka', sans-serif;
+}
+
+.validator{
+  color: #FFAC41;
+}
+

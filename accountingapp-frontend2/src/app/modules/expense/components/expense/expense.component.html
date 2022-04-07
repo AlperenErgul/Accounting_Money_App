@@ -1,0 +1,128 @@
+<div class="bg-dark text-warning py-5 text-center">
+  <div class="container font pt-5">
+    <!--    title-->
+    <div class="row pb-3 animate__animated animate__fadeInDown">
+      <h1 class="font">Expenses</h1>
+    </div>
+    <!--    buttons-->
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="pb-4 d-grid gap-2 d-md-flex justify-content-md-center">
+          <button class="btn btn-warning btn-lg animate__animated animate__fadeInLeft" data-bs-toggle="modal"
+                  data-bs-target="#createModal" data-bs-whatever="@getbootstrap">
+            <i class="fa-solid fa-caret-right pe-1"></i>Create Expense
+          </button>
+          <button (click)="goIncomes()" class="btn btn-warning btn-lg animate__animated animate__fadeInRight">
+            <i class="fas fa-arrow-alt-circle-right pe-1"></i>Incomes
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--    total income-->
+    <div *ngIf="expenseList.length>0" class="py-5 total bg-our text-lg my-3 text-dark mx-auto col-md-8">
+      <div class="container text-center">
+        Total Expense: {{totalExpense}}
+      </div>
+    </div>
+    <!--create income modal-->
+    <div class="row">
+      <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create Expense</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="form" (ngSubmit)="createExpense()">
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Title:</label>
+                  <input type="text" formControlName="title" class="form-control" id="recipient-name">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Description</label>
+                  <input type="text" formControlName="description" class="form-control" id="message-text">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Expense:</label>
+                  <input type="number" formControlName="expense" class="form-control">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" (click)="createExpense()" class="btn btn-warning " data-bs-dismiss="modal">Create Expense</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--update income model-->
+    <div class="row">
+      <div class="modal fade " id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel2">Update Income</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="updateForm">
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Title:</label>
+                  <input [(ngModel)]="this.updatingItem.title" type="text" formControlName="title" class="form-control"
+                         id="recipient-name2">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Description</label>
+                  <input [(ngModel)]="this.updatingItem.description" type="text" formControlName="description"
+                         class="form-control" id="message-text2">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Expense:</label>
+                  <input [(ngModel)]="this.updatingItem.expense" type="number" formControlName="expense"
+                         class="form-control">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" (click)="updateExpense()" class="btn btn-warning " data-bs-dismiss="modal">Update
+                    Expense
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    expenses-->
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <table class="table table-striped bg-our">
+          <thead *ngIf="expenseList.length>0">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Expense</th>
+            <th scope="col">Settings</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let expense of expenseList; let i = index" style="height: 100px;" class="align-middle">
+            <th scope="row" class="text-center ">{{i+1}}</th>
+            <td>{{expense.title}}</td>
+            <td>{{expense.description}}</td>
+            <td>{{expense.expense}}</td>
+            <td>
+              <button (click)="deleteExpense(expense.id)" class="btn btn-dark">Delete</button>
+              <button (click)="updatingExpense(expense)" data-bs-toggle="modal"
+                      data-bs-target="#updateModal" data-bs-whatever="@getbootstrap"
+                      class="btn btn-dark ms-2">Update</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

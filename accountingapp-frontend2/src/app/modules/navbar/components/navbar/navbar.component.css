@@ -1,0 +1,12 @@
+.navbar{
+  /*background-color: #2f2f2f !important;*/
+  background-color: #FFAC41 !important;
+}
+.text-black{
+  font-family: 'Fredoka', sans-serif;
+}
+
+.logout{
+  cursor: pointer;
+}
+
