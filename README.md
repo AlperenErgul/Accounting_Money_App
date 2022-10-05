@@ -3,7 +3,7 @@ This Project is coded to enable you to control and organize your income and expe
 
 Technologies used in the project:
 
--Angular.js
+-Angular
 
 -Nest.js
 
